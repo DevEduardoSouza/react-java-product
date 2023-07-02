@@ -13,6 +13,7 @@ import lombok.Data;
 @Data
 public class ResponseModel {
 
+    private String field;
     private String message;
     
 }

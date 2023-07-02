@@ -1,5 +1,6 @@
 package br.com.produto.produto.service;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,6 @@ public class ProdutoService implements IProdutoService{
     private ResponseModel rm;
 
 
-
     /*
      * O metodo de cadastro e alterar usam o save
      * 
@@ -40,6 +40,7 @@ public class ProdutoService implements IProdutoService{
         
         if(pm.getName().equals("")){
             rm.setMessage("O nome do produto é obrigatório");
+            rm.setField("name");
             return new ResponseEntity<ResponseModel>(rm, HttpStatus.BAD_REQUEST);
         }else if(pm.getMarca().equals("")){
             rm.setMessage("A marca é obrigatória");
